@@ -1,4 +1,29 @@
 <h1>Showing article details</h1>
 
-<p><strong>Title: </strong><%= @article.title %></p>
+<!-- <p><strong>Title: </strong><%= @article.title %></p>
 <p><strong>Description: </strong><%= @article.description %></p
+ -->
+
+
+  <div class="article-container">
+
+
+      <div class="card text-center" style="width: 60rem;height:20rem;margin-left:250px;">
+        <div class="card-header">
+          by <%=@article.user.username%>
+            </div>
+                      <div class="card-body">
+
+                      <h1>   <%=@article.title %> </h1>
+                        <p class="card-text"><%= @article.description %></p>
+
+                         <%=link_to 'delete',article_path(@article.id),method: :delete,class:"btn btn-primary" %>
+                         <%=link_to 'show',article_path(@article.id),method: :get,class:"btn btn-primary" %>
+                         <%=link_to 'edit',edit_article_path(@article.id),method: :get,class:"btn btn-primary" %>
+                      </div>
+            <div class="card-footer text-muted">
+        created at :  <%=time_ago_in_words(@article.created_at)%> ago   &nbsp &nbsp updated at:<%=time_ago_in_words(@article.updated_at)%> ago
+        </div>
+      </div>
+
+    </div>
